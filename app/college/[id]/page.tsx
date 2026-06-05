@@ -52,24 +52,17 @@ export default function CollegeDetails() {
   return (
     <main className="min-h-screen bg-gray-100 p-8">
       <div className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow">
-        <h1 className="text-3xl font-bold mb-4">
-          {college.name}
-        </h1>
+        <h1 className="text-3xl font-bold mb-4">{college.name}</h1>
 
         <p><strong>Location:</strong> {college.location}</p>
         <p><strong>Fees:</strong> {college.fees}</p>
         <p><strong>Rating:</strong> {college.rating}</p>
 
-        <p className="mt-4 mb-6">
-          {college.description}
-        </p>
+        <p className="mt-4 mb-6">{college.description}</p>
 
         <button
           onClick={() => {
-            localStorage.setItem(
-              "favoriteCollege",
-              college.name
-            );
+            localStorage.setItem("favoriteCollege", college.name);
             setFavorite(!favorite);
           }}
           className="bg-blue-600 text-white px-4 py-2 rounded-lg"

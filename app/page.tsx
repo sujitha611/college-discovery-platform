@@ -40,6 +40,15 @@ export default function Home() {
         College Discovery Platform
       </h1>
 
+      <div className="text-center mb-6">
+        <Link
+          href="/compare"
+          className="bg-green-600 text-white px-4 py-2 rounded-lg"
+        >
+          Compare Colleges
+        </Link>
+      </div>
+
       <div className="max-w-4xl mx-auto mb-6">
         <input
           type="text"
