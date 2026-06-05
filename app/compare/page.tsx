@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ComparePage() {
   return (
     <main className="min-h-screen bg-gray-100 p-8">
@@ -5,7 +7,7 @@ export default function ComparePage() {
         Compare Colleges
       </h1>
 
-      <div className="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow">
+      <div className="max-w-5xl mx-auto bg-white p-6 rounded-xl shadow">
         <table className="w-full border">
           <thead>
             <tr>
@@ -33,8 +35,23 @@ export default function ComparePage() {
               <td className="border p-2">4.6 ⭐</td>
               <td className="border p-2">4.4 ⭐</td>
             </tr>
+
+            <tr>
+              <td className="border p-2">Placements</td>
+              <td className="border p-2">Highest: 25 LPA</td>
+              <td className="border p-2">Highest: 10 LPA</td>
+            </tr>
           </tbody>
         </table>
+
+        <div className="mt-6 text-center">
+          <Link
+            href="/"
+            className="bg-gray-600 text-white px-4 py-2 rounded-lg"
+          >
+            ← Back to Home
+          </Link>
+        </div>
       </div>
     </main>
   );
