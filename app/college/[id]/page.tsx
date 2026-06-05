@@ -13,9 +13,9 @@ const colleges = [
     rating: "4.2 ⭐",
     description:
       "A well-known engineering college in Guntur offering various technical courses.",
-    courses: ["B.Tech CSE", "B.Tech ECE", "MBA"],
-    placements: "Highest Package: 12 LPA | Average Package: 4.5 LPA",
-    reviews: "⭐ 4.2/5 - Good faculty and placements",
+    courses: ["CSE", "ECE", "EEE"],
+    placements: "Highest Package: ₹12 LPA",
+    reviews: "Students appreciate the faculty and campus.",
   },
   {
     id: "2",
@@ -25,9 +25,9 @@ const colleges = [
     rating: "4.6 ⭐",
     description:
       "One of the top private universities known for engineering and innovation.",
-    courses: ["B.Tech CSE", "B.Tech AI", "MBA"],
-    placements: "Highest Package: 25 LPA | Average Package: 7 LPA",
-    reviews: "⭐ 4.6/5 - Excellent campus and placements",
+    courses: ["CSE", "AI & ML", "Data Science"],
+    placements: "Highest Package: ₹20 LPA",
+    reviews: "Strong placements and modern infrastructure.",
   },
   {
     id: "3",
@@ -37,9 +37,9 @@ const colleges = [
     rating: "4.4 ⭐",
     description:
       "Popular university with strong academics and campus facilities.",
-    courses: ["B.Tech CSE", "B.Tech EEE", "MBA"],
-    placements: "Highest Package: 10 LPA | Average Package: 4 LPA",
-    reviews: "⭐ 4.4/5 - Good academics and infrastructure",
+    courses: ["CSE", "Mechanical", "Civil"],
+    placements: "Highest Package: ₹15 LPA",
+    reviews: "Good faculty support and campus environment.",
   },
 ];
 
@@ -69,28 +69,30 @@ export default function CollegeDetails() {
         <p><strong>Fees:</strong> {college.fees}</p>
         <p><strong>Rating:</strong> {college.rating}</p>
 
-        <h2 className="text-xl font-bold mt-6">
-          Overview
-        </h2>
-        <p className="mt-2">{college.description}</p>
+        <p className="mt-4 mb-6">
+          {college.description}
+        </p>
 
-        <h2 className="text-xl font-bold mt-6">
+        <h2 className="text-xl font-bold mt-6 mb-2">
           Courses
         </h2>
+
         <ul className="list-disc ml-6">
           {college.courses.map((course) => (
             <li key={course}>{course}</li>
           ))}
         </ul>
 
-        <h2 className="text-xl font-bold mt-6">
+        <h2 className="text-xl font-bold mt-6 mb-2">
           Placements
         </h2>
+
         <p>{college.placements}</p>
 
-        <h2 className="text-xl font-bold mt-6">
+        <h2 className="text-xl font-bold mt-6 mb-2">
           Reviews
         </h2>
+
         <p>{college.reviews}</p>
 
         <button
