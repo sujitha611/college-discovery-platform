@@ -29,12 +29,9 @@ const colleges = [
 
 export default function Home() {
   const [search, setSearch] = useState("");
-  const [location, setLocation] = useState("All");
 
-  const filteredColleges = colleges.filter(
-    (college) =>
-      college.name.toLowerCase().includes(search.toLowerCase()) &&
-      (location === "All" || college.location === location)
+  const filteredColleges = colleges.filter((college) =>
+    college.name.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -43,19 +40,33 @@ export default function Home() {
         College Discovery Platform
       </h1>
 
-      <div className="text-center mb-4">
-        <Link
-          href="/login"
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg mr-3"
-        >
-          Login
-        </Link>
-
+      <div className="text-center mb-6 space-x-2">
         <Link
           href="/compare"
           className="bg-green-600 text-white px-4 py-2 rounded-lg"
         >
           Compare Colleges
+        </Link>
+
+        <Link
+          href="/predictor"
+          className="bg-purple-600 text-white px-4 py-2 rounded-lg"
+        >
+          Predictor Tool
+        </Link>
+
+        <Link
+          href="/login"
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg"
+        >
+          Login
+        </Link>
+
+        <Link
+          href="/signup"
+          className="bg-orange-600 text-white px-4 py-2 rounded-lg"
+        >
+          Sign Up
         </Link>
       </div>
 
@@ -67,16 +78,6 @@ export default function Home() {
           onChange={(e) => setSearch(e.target.value)}
           className="w-full p-3 border rounded-lg"
         />
-
-        <select
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-          className="w-full p-3 border rounded-lg mt-3"
-        >
-          <option>All</option>
-          <option>Guntur</option>
-          <option>Vijayawada</option>
-        </select>
       </div>
 
       <div className="max-w-4xl mx-auto grid gap-6">
@@ -86,7 +87,6 @@ export default function Home() {
               <h2 className="text-xl font-semibold">
                 {college.name}
               </h2>
-
               <p>Location: {college.location}</p>
               <p>Fees: {college.fees}</p>
               <p>Rating: {college.rating}</p>
