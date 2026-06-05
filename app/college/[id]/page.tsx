@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 const colleges = [
   {
@@ -34,9 +35,19 @@ const colleges = [
 ];
 
 export default function CollegeDetails() {
+  const { id } = useParams();
   const [favorite, setFavorite] = useState(false);
 
-  const college = colleges[0];
+  const college = colleges.find((c) => c.id === id);
+
+  if (!college) {
+    return (
+      <main className="p-8">
+        <h1>College not found</h1>
+        <Link href="/">Go back</Link>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-gray-100 p-8">
@@ -54,11 +65,25 @@ export default function CollegeDetails() {
         </p>
 
         <button
-          onClick={() => setFavorite(!favorite)}
+          onClick={() => {
+            localStorage.setItem(
+              "favoriteCollege",
+              college.name
+            );
+            setFavorite(!favorite);
+          }}
           className="bg-blue-600 text-white px-4 py-2 rounded-lg"
         >
-          {favorite ? "❤️ Added to Favorites" : "🤍 Add to Favorites"}
+          {favorite
+            ? "❤️ Added to Favorites"
+            : "🤍 Add to Favorites"}
         </button>
+
+        {favorite && (
+          <p className="mt-3 text-green-600">
+            College saved successfully ❤️
+          </p>
+        )}
 
         <div className="mt-4">
           <Link
